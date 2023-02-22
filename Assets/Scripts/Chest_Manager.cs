@@ -18,9 +18,11 @@ public class Chest_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winsText;
     [SerializeField] private Button PlayButton;
 
-    [SerializeField] public int currentBalance;
+    [SerializeField] public int currentBalance = 10;
     [SerializeField] public int currentDenomination;
     [SerializeField] public int currentWins;
+
+    [SerializeField] public int totalWinsAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,19 +46,19 @@ public class Chest_Manager : MonoBehaviour
     public void CurrentBalanceCheck(int _passedValue)
     {
         currentBalance += _passedValue;
-        balanceText.text = _passedValue.ToString();
+        balanceText.text = currentBalance.ToString();
     }
 
     public void DenominationCheck(int _passedValue)
     {
         currentDenomination = _passedValue;
-        denominationText.text = _passedValue.ToString();
+        denominationText.text = currentDenomination.ToString();
     }
 
     public void WinsCheck(int _passedValue)
     {
         currentWins = _passedValue;
-        winsText.text = _passedValue.ToString(); 
+        winsText.text = currentWins.ToString(); 
     }
     #endregion
 
@@ -88,15 +90,11 @@ public class Chest_Manager : MonoBehaviour
     {
         //Generate the random element num
         int randomElement = Random.Range(0, TreasureChestScripts.Length);
-        Debug.Log("The random element number is: " + randomElement);
+        //Debug.Log("The random element number is: " + randomElement);
 
         //Set the TreasureChest to have its isPooper bool become true. Then do the same for if it is Modified.
         TreasureChestScripts[randomElement].isPooper= true;
         TreasureChestScripts[randomElement].isModified= true;
-        /*
-        TreasureChests[randomElement].GetComponent<TreasureChestScript>().isPooper = true;
-        TreasureChests[randomElement].GetComponent<TreasureChestScript>().isModified = true;
-        */
     }
 
     private void AssignValue()
@@ -108,17 +106,78 @@ public class Chest_Manager : MonoBehaviour
         o 12x, 16x, 24x, 32x, 48x, 64x - one of these 15% of the time.
         o 100x, 200x, 300x, 400x, 500x - one of these 5% of the time.
         */
-        
+        for(int i = 0; i < TreasureChestScripts.Length; i++)
+        {
+            if (TreasureChestScripts[i].isModified == false && TreasureChestScripts[i].isPooper == false)
+            {
+                int rnd = Random.Range(0, 100);
+                //0x
+                switch(rnd) 
+                {
+                    case int n when (n <= 50):
+                        TreasureChestScripts[i].value = 0;
+                        TreasureChestScripts[i].isModified = true;
+                        break;
+
+                    case int n when (n > 50 && n <= 80):
+                        TreasureChestScripts[i].value = Random.Range(1, 10);
+                        TreasureChestScripts[i].isModified = true;
+                        break;
+
+                    case int n when (n > 80 && n <= 95):
+                        TreasureChestScripts[i].value = Random.Range(12, 64);
+                        TreasureChestScripts[i].isModified = true;
+                        break;
+
+                    case int n when (n > 95 && n <= 100):
+                        TreasureChestScripts[i].value = Random.Range(100, 500);
+                        TreasureChestScripts[i].isModified = true;
+                        break;
+
+                    default:
+                        break;
+                }
+                
+            }
+            /*else if (TreasureChestScripts[i].isPooper == true)
+            {
+                Debug.Log("This is the Pooper");
+            }
+            else
+            {
+                Debug.Log("No more chests to provide a value");
+            }*/
+        }
     }
 
-    public void GameEndButtons()
+
+    public void AcceptWinsAmount(int value)
+    {
+        //currentWins += amount;
+        if (value == 0)
+        {
+            currentWins = value * currentDenomination;
+        }
+        else
+        {
+            currentWins += value * currentDenomination;
+        }
+        
+        WinsCheck(currentWins);
+    }
+
+    public void RoundEnd()
     {
         PlayButton.interactable = true;
         for (int i = 0; i < TreasureChests.Length; i++)
         {
             TreasureChests[i].GetComponent<Button>().interactable = false;
-            TreasureChestScripts[i].RoundOver();
+            TreasureChestScripts[i].isModified = false;
+            TreasureChestScripts[i].isPooper = false;
         }
+        Debug.Log(currentWins);
+        CurrentBalanceCheck(currentWins);
+        WinsCheck(currentWins);
     }
     #endregion
 }

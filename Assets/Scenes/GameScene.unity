@@ -447,9 +447,11 @@ MonoBehaviour:
   balanceText: {fileID: 360114527}
   denominationText: {fileID: 595221317}
   winsText: {fileID: 2077992196}
+  PlayButton: {fileID: 1788015662}
   currentBalance: 10
-  currentDenomination: 0
+  currentDenomination: 2
   currentWins: 0
+  totalWinsAmount: 0
 --- !u!4 &521290399
 Transform:
   m_ObjectHideFlags: 0

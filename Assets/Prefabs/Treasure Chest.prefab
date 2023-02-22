@@ -257,7 +257,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5883923891175629880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6739567143213709131}
+        m_TargetAssemblyTypeName: TreasureChestScript, Assembly-CSharp
+        m_MethodName: CheckChest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6739567143213709131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,3 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c28e8630ca4b74382d2b81bace9552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 5
+  value: 0
+  winsAmount: 0
+  isPooper: 0
+  isModified: 0
+  gameManager: {fileID: 0}
+  managerScript: {fileID: 0}
+  chestText: {fileID: 2618696779134249480}
