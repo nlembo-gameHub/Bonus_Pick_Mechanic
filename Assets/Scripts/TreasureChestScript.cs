@@ -7,8 +7,8 @@ using TMPro;
 public class TreasureChestScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] public int value;
-    [SerializeField] public int winsAmount;
+    [SerializeField] public float value;
+    [SerializeField] public float winsAmount;
 
     [SerializeField] public bool isPooper;
     [SerializeField] public bool isModified;
@@ -16,7 +16,7 @@ public class TreasureChestScript : MonoBehaviour
     [SerializeField] private GameObject gameManager;
     [SerializeField] private Chest_Manager managerScript;
 
-    [SerializeField] private TextMeshProUGUI chestText;
+    [SerializeField] public TextMeshProUGUI chestText;
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
@@ -59,7 +59,7 @@ public class TreasureChestScript : MonoBehaviour
     public void RoundOver()
     {
         Debug.Log("Round is over");
-        chestText.text = "Button";
+        //chestText.text = "Button";
         managerScript.RoundEnd();
     }
 }

@@ -18,11 +18,11 @@ public class Chest_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winsText;
     [SerializeField] private Button PlayButton;
 
-    [SerializeField] public int currentBalance = 10;
-    [SerializeField] public int currentDenomination;
-    [SerializeField] public int currentWins;
+    [SerializeField] public float currentBalance = 10;
+    [SerializeField] public float currentDenomination;
+    [SerializeField] public float currentWins;
 
-    [SerializeField] public int totalWinsAmount;
+    [SerializeField] public float totalWinsAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,19 +43,27 @@ public class Chest_Manager : MonoBehaviour
     }
 
     #region Text Assigments
-    public void CurrentBalanceCheck(int _passedValue)
+    public void CurrentBalanceCheck(float _passedValue)
     {
-        currentBalance += _passedValue;
+        if(_passedValue != currentBalance) 
+        {
+            currentBalance += _passedValue;
+        }
+        else
+        {
+            currentBalance = _passedValue;
+        }
+        
         balanceText.text = currentBalance.ToString();
     }
 
-    public void DenominationCheck(int _passedValue)
+    public void DenominationCheck(float _passedValue)
     {
         currentDenomination = _passedValue;
         denominationText.text = currentDenomination.ToString();
     }
 
-    public void WinsCheck(int _passedValue)
+    public void WinsCheck(float _passedValue)
     {
         currentWins = _passedValue;
         winsText.text = currentWins.ToString(); 
@@ -151,7 +159,7 @@ public class Chest_Manager : MonoBehaviour
     }
 
 
-    public void AcceptWinsAmount(int value)
+    public void AcceptWinsAmount(float value)
     {
         //currentWins += amount;
         if (value == 0)
@@ -174,6 +182,7 @@ public class Chest_Manager : MonoBehaviour
             TreasureChests[i].GetComponent<Button>().interactable = false;
             TreasureChestScripts[i].isModified = false;
             TreasureChestScripts[i].isPooper = false;
+            TreasureChestScripts[i].chestText.text = "Chest";
         }
         Debug.Log(currentWins);
         CurrentBalanceCheck(currentWins);
