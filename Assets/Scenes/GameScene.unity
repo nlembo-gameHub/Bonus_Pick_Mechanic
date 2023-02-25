@@ -1980,6 +1980,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5927369871965659796, guid: 5077722a08388094d9630ba9b319ecd2, type: 3}
   m_PrefabInstance: {fileID: 1376988424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418545236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2265385729264547531, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
+  m_PrefabInstance: {fileID: 546356244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1458331255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2620,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827363992}
   m_CullTransparentMesh: 1
+--- !u!114 &1850541829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2265385729264547531, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
+  m_PrefabInstance: {fileID: 796292466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1883901725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +2944,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2265385729264547529, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
   m_PrefabInstance: {fileID: 2035374342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035374345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2265385729264547531, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
+  m_PrefabInstance: {fileID: 2035374342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042638066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6126714901139096904, guid: 5077722a08388094d9630ba9b319ecd2, type: 3}
@@ -3149,6 +3182,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2265385729264547529, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
   m_PrefabInstance: {fileID: 2265385727321324361}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2083999106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2265385729264547531, guid: dd082eac5700e0740a2c2c484f134ead, type: 3}
+  m_PrefabInstance: {fileID: 2265385727321324361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2127209110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3564,6 +3608,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: IncrementButtons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
       propertyPath: percentRangeFive.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -3611,6 +3659,22 @@ PrefabInstance:
       propertyPath: percentRangeThirty.Array.size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: IncrementButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2083999106}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: IncrementButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1418545236}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: IncrementButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1850541829}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: IncrementButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 2035374345}
     - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
       propertyPath: percentRangeFifteen.Array.size
       value: 6

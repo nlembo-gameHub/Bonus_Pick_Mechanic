@@ -17,6 +17,7 @@ public class Chest_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI denominationText;
     [SerializeField] private TextMeshProUGUI winsText;
     [SerializeField] private Button PlayButton;
+    [SerializeField] private Button[] IncrementButtons;
 
     [SerializeField] public float currentBalance;
     [SerializeField] public float currentDenomination;
@@ -100,6 +101,8 @@ public class Chest_Manager : MonoBehaviour
     public void BeginChestAssignment()
     {
         //Debug.Log("Play button has been pressed");
+        currentWins = 0;
+        WinsCheck(currentWins);
         //Make buttons interactable and uninteractable.
         GameBeginButtons();
         //With the play button pressed, we will now call the 'AssignPooper' func
@@ -113,10 +116,16 @@ public class Chest_Manager : MonoBehaviour
     private void GameBeginButtons()
     {
         PlayButton.interactable = false;
+        //Make Chest Buttons Interactable
         for (int i = 0; i < TreasureChests.Length; i++)
         {
             TreasureChests[i].GetComponent<Button>().interactable = true;
             TreasureChestScripts[i].value = 0;
+        }
+        //Make Increment buttons disabled
+        for(int i = 0; i < IncrementButtons.Length; i++)
+        {
+            IncrementButtons[i].GetComponent<Button>().interactable = false;
         }
     }
 
@@ -207,9 +216,16 @@ public class Chest_Manager : MonoBehaviour
             TreasureChestScripts[i].isPooper = false;
             TreasureChestScripts[i].chestText.text = "Chest";
         }
-        Debug.Log(currentWins);
+
+        //Debug.Log(currentWins);
         CurrentBalanceCheck(currentWins);
         WinsCheck(currentWins);
+        DenominationCheck(0);
+
+        for (int i = 0; i < IncrementButtons.Length; i++)
+        {
+            IncrementButtons[i].GetComponent<Button>().interactable = true;
+        }
     }
     #endregion
 }
