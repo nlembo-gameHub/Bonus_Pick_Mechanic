@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Treasure Chest
   - Game Manager
+  - Increment Buttons
   layers:
   - Default
   - TransparentFX
