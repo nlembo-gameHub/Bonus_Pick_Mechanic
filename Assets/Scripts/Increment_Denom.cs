@@ -35,7 +35,7 @@ public class Increment_Denom : MonoBehaviour
 
     public void AddDenomination()
     {
-        if(valueScriptable.value > managerScript.currentBalance)
+        if(valueScriptable.value <= managerScript.currentBalance)
         {
             FixBalance();
             SubtractBalance();

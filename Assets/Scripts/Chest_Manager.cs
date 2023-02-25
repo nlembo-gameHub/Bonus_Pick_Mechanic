@@ -23,6 +23,14 @@ public class Chest_Manager : MonoBehaviour
     [SerializeField] public float currentWins;
 
     [SerializeField] public float totalWinsAmount;
+
+    //Multiplier Ranges
+    [Header("Multiplier Ranges")]
+    [SerializeField] private float[] percentRangeFifty;
+    [SerializeField] private float[] percentRangeThirty;
+    [SerializeField] private float[] percentRangeFifteen;
+    [SerializeField] private float[] percentRangeFive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -137,26 +145,31 @@ public class Chest_Manager : MonoBehaviour
             if (TreasureChestScripts[i].isModified == false && TreasureChestScripts[i].isPooper == false)
             {
                 int rnd = Random.Range(0, 100);
+                int randomElement;
                 //0x
-                switch(rnd) 
+                switch (rnd) 
                 {
                     case int n when (n <= 50):
-                        TreasureChestScripts[i].value = 0;
+                        randomElement = Random.Range(0, percentRangeFifty.Length);
+                        TreasureChestScripts[i].value = percentRangeFifty[randomElement];
                         TreasureChestScripts[i].isModified = true;
                         break;
 
                     case int n when (n > 50 && n <= 80):
-                        TreasureChestScripts[i].value = Random.Range(1, 10);
+                        randomElement = Random.Range(0, percentRangeThirty.Length);
+                        TreasureChestScripts[i].value = percentRangeThirty[randomElement];
                         TreasureChestScripts[i].isModified = true;
                         break;
 
                     case int n when (n > 80 && n <= 95):
-                        TreasureChestScripts[i].value = Random.Range(12, 64);
+                        randomElement = Random.Range(0, percentRangeFifteen.Length);
+                        TreasureChestScripts[i].value = percentRangeFifteen[randomElement];
                         TreasureChestScripts[i].isModified = true;
                         break;
 
                     case int n when (n > 95 && n <= 100):
-                        TreasureChestScripts[i].value = Random.Range(100, 500);
+                        randomElement = Random.Range(0, percentRangeFive.Length);
+                        TreasureChestScripts[i].value = percentRangeFive[randomElement];
                         TreasureChestScripts[i].isModified = true;
                         break;
 
@@ -165,14 +178,6 @@ public class Chest_Manager : MonoBehaviour
                 }
                 
             }
-            /*else if (TreasureChestScripts[i].isPooper == true)
-            {
-                Debug.Log("This is the Pooper");
-            }
-            else
-            {
-                Debug.Log("No more chests to provide a value");
-            }*/
         }
     }
 

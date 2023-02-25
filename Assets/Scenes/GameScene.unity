@@ -3560,6 +3560,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 595221317}
     - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
       propertyPath: TreasureChests.Array.data[0]
       value: 
       objectReference: {fileID: 778988892}
@@ -3595,6 +3603,102 @@ PrefabInstance:
       propertyPath: TreasureChests.Array.data[8]
       value: 
       objectReference: {fileID: 1478319492}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifty.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.data[1]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.data[2]
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.data[3]
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFive.Array.data[4]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[5]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[6]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[7]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[8]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeThirty.Array.data[9]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[1]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[2]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[3]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[4]
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648799246637146493, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
+      propertyPath: percentRangeFifteen.Array.data[5]
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1648799246637146494, guid: 7381291a48ea1ad4e9b3a0d9fa240502, type: 3}
       propertyPath: m_Name
       value: Game Manager
