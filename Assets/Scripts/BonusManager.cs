@@ -29,6 +29,7 @@ public class BonusManager : MonoBehaviour
     [SerializeField] private float totalWinnings;
     [SerializeField] private float[] winningsSplit;
 
+    [SerializeField] private bool startingBalanceCheck = false; 
     //Multiplier Ranges
     [Header("Multiplier Ranges")]
     [SerializeField] private float[] percentRangeFifty;
@@ -68,7 +69,26 @@ public class BonusManager : MonoBehaviour
             Debug.Log("Passed value is set to equal");
             currentBalance = _passedValue;
         }*/
-        currentBalance += _passedValue;
+        
+
+        if(startingBalanceCheck == false)
+        {
+            if (_passedValue != currentBalance)
+            {
+                Debug.Log("Passed value is added");
+                currentBalance += _passedValue;
+            }
+            else
+            {
+                Debug.Log("Passed value is set to equal");
+                currentBalance = _passedValue;
+            }
+            startingBalanceCheck = true;
+        }
+        else
+        {
+            currentBalance += _passedValue;
+        }
         balanceText.text = currentBalance.ToString();
     }
 
