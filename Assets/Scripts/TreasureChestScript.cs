@@ -14,7 +14,7 @@ public class TreasureChestScript : MonoBehaviour
 
     [SerializeField] public bool isPooper;
     [SerializeField] public bool isModified;
-    [SerializeField] private bool wasClicked;
+    [SerializeField] public bool wasClicked;
 
     [SerializeField] private GameObject gameManager;
     [SerializeField] private BonusManager managerScript;
@@ -48,10 +48,15 @@ public class TreasureChestScript : MonoBehaviour
                 value = 0;
                 wasClicked = true;
             }
-            else if (value == 0)
+            else if (value == 0 && !wasClicked)
             {
                 SwapChestValue();
             }
+            else if(value == 0 && wasClicked)
+            {
+                RoundOver();
+            }
+            
         }
         /*
         if (isPooper)
@@ -89,14 +94,22 @@ public class TreasureChestScript : MonoBehaviour
         Debug.Log("Swap Chest Func Fires");
         for (int i = 0; i < managerScript.TreasureChestScripts.Length; i++)
         {
-            if (managerScript.TreasureChestScripts[i].value != 0)
+            if (managerScript.TreasureChestScripts[i].wasClicked == false)
             {
-                value = managerScript.TreasureChestScripts[i].value;
-                managerScript.TreasureChestScripts[i].value = 0;
-                break;
+                if (managerScript.TreasureChestScripts[i].value != 0)
+                {
+                    value = managerScript.TreasureChestScripts[i].value;
+                    managerScript.TreasureChestScripts[i].value = 0;
+                    wasClicked = true;
+                    isModified = true;
+                    break;
+                }
             }
+           
         }
+        wasClicked = true;
         CheckChest();
+
     }
 
     public void RoundOver()

@@ -199,6 +199,7 @@ public class BonusManager : MonoBehaviour
         {
             TreasureChests[i].GetComponent<Button>().interactable = false;
             TreasureChestScripts[i].isModified = false;
+            TreasureChestScripts[i].wasClicked = false;
             TreasureChestScripts[i].isPooper = false;
             TreasureChestScripts[i].chestText.text = "Chest";
         }
