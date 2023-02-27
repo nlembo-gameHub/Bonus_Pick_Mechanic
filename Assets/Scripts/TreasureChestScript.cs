@@ -3,34 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class TreasureChestScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public float value;
-    [SerializeField] public float winsAmount;
+    [SerializeField] private float winsAmount;
+    [SerializeField] private int percent;
 
     [SerializeField] public bool isPooper;
     [SerializeField] public bool isModified;
+    [SerializeField] private bool wasClicked;
 
     [SerializeField] private GameObject gameManager;
-    [SerializeField] private Chest_Manager managerScript;
+    [SerializeField] private BonusManager managerScript;
+    [SerializeField] private TreasureChestScript otherChests;
 
     [SerializeField] public TextMeshProUGUI chestText;
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
-        managerScript = gameManager.GetComponent<Chest_Manager>();
+        managerScript = gameManager.GetComponent<BonusManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckPercentValue(int _percent)
     {
-        
+        percent = _percent;
     }
-
     public void CheckChest()
     {
+        if (percent == 0)
+        {
+            //chestText.text = "$" + value.ToString();
+            managerScript.AcceptWinsAmount(value);
+            RoundOver();
+        }
+        else
+        {
+            if (value != 0)
+            {
+                chestText.text = "$" + value.ToString();
+                managerScript.AcceptWinsAmount(value);
+                value = 0;
+                wasClicked = true;
+            }
+            else if (value == 0)
+            {
+                SwapChestValue();
+            }
+        }
+        /*
         if (isPooper)
         {
             //Will call the 'RoundOver' func since the pooper was found
@@ -39,21 +62,41 @@ public class TreasureChestScript : MonoBehaviour
         }
         else
         {
-            if(value == 0)
+            if(percent == 0)
             {
-                //winsAmount += value * managerScript.currentDenomination;
-                chestText.text = "x" + value.ToString();
+                //chestText.text = "$" + value.ToString();
                 managerScript.AcceptWinsAmount(value);
                 RoundOver();
             }
             else
             {
-                chestText.text = "x" + value.ToString();
-                //winsAmount += value * managerScript.currentDenomination;
-                managerScript.AcceptWinsAmount(value);
-                winsAmount = 0;
+                if(value != 0)
+                {
+                    chestText.text = "$" + value.ToString();
+                    managerScript.AcceptWinsAmount(value);
+                    value = 0;
+                }
+                else
+                {
+                    SwapChestValue();
+                }
+            }
+        }*/
+    }
+
+    private void SwapChestValue()
+    {
+        Debug.Log("Swap Chest Func Fires");
+        for (int i = 0; i < managerScript.TreasureChestScripts.Length; i++)
+        {
+            if (managerScript.TreasureChestScripts[i].value != 0)
+            {
+                value = managerScript.TreasureChestScripts[i].value;
+                managerScript.TreasureChestScripts[i].value = 0;
+                break;
             }
         }
+        CheckChest();
     }
 
     public void RoundOver()

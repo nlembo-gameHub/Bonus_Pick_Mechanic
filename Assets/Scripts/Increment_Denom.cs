@@ -9,27 +9,27 @@ public class Increment_Denom : MonoBehaviour
     [SerializeField] private Increment_Value valueScriptable;
     //Game Manager and its Script
     [SerializeField] private GameObject gameManager;
-    [SerializeField] private Chest_Manager managerScript;
+    [SerializeField] private BonusManager managerScript;
     //Button text
     [SerializeField] public TextMeshProUGUI denomText;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
-        managerScript = gameManager.GetComponent<Chest_Manager>();
+        managerScript = gameManager.GetComponent<BonusManager>();
 
         denomText.text = "$" + valueScriptable.value.ToString();
     }
 
     public void SubtractBalance()
     {
-        Debug.Log("Running SubtractBalance");
+        //Debug.Log("Running SubtractBalance");
         managerScript.CurrentBalanceCheck(-valueScriptable.value);
     }
 
     private void FixBalance()
     {
-        Debug.Log("Running FixBalance");
+        //Debug.Log("Running FixBalance");
         managerScript.CurrentBalanceCheck(managerScript.currentDenomination);
     }
 
