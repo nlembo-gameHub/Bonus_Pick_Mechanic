@@ -57,14 +57,18 @@ public class BonusManager : MonoBehaviour
     #region Text Assigments
     public void CurrentBalanceCheck(float _passedValue)
     {
+        /*
         if (_passedValue != currentBalance)
         {
+            Debug.Log("Passed value is added");
             currentBalance += _passedValue;
         }
         else
         {
+            Debug.Log("Passed value is set to equal");
             currentBalance = _passedValue;
-        }
+        }*/
+        currentBalance += _passedValue;
         balanceText.text = currentBalance.ToString();
     }
 

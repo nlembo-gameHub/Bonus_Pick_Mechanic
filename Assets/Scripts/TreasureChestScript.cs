@@ -54,39 +54,13 @@ public class TreasureChestScript : MonoBehaviour
             }
             else if(value == 0 && wasClicked)
             {
+                isPooper = true;
+                //Will call the 'RoundOver' func since the pooper was found
+                chestText.text = "Pooper";
                 RoundOver();
             }
             
         }
-        /*
-        if (isPooper)
-        {
-            //Will call the 'RoundOver' func since the pooper was found
-            chestText.text = "Pooper";
-            RoundOver();
-        }
-        else
-        {
-            if(percent == 0)
-            {
-                //chestText.text = "$" + value.ToString();
-                managerScript.AcceptWinsAmount(value);
-                RoundOver();
-            }
-            else
-            {
-                if(value != 0)
-                {
-                    chestText.text = "$" + value.ToString();
-                    managerScript.AcceptWinsAmount(value);
-                    value = 0;
-                }
-                else
-                {
-                    SwapChestValue();
-                }
-            }
-        }*/
     }
 
     private void SwapChestValue()

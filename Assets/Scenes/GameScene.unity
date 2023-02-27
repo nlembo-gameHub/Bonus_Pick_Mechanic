@@ -521,7 +521,7 @@ MonoBehaviour:
   - {fileID: 1418545236}
   - {fileID: 1850541829}
   - {fileID: 2035374345}
-  currentBalance: 10
+  currentBalance: 5
   currentDenomination: 0
   currentWins: 0
   totalWinnings: 0
