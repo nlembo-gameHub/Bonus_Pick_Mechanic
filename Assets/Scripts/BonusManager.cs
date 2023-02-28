@@ -58,29 +58,15 @@ public class BonusManager : MonoBehaviour
     #region Text Assigments
     public void CurrentBalanceCheck(float _passedValue)
     {
-        /*
-        if (_passedValue != currentBalance)
-        {
-            Debug.Log("Passed value is added");
-            currentBalance += _passedValue;
-        }
-        else
-        {
-            Debug.Log("Passed value is set to equal");
-            currentBalance = _passedValue;
-        }*/
-        
 
         if(startingBalanceCheck == false)
         {
             if (_passedValue != currentBalance)
             {
-                Debug.Log("Passed value is added");
                 currentBalance += _passedValue;
             }
             else
             {
-                Debug.Log("Passed value is set to equal");
                 currentBalance = _passedValue;
             }
             startingBalanceCheck = true;
@@ -112,9 +98,6 @@ public class BonusManager : MonoBehaviour
         WinsCheck(currentWins);
         //Make buttons interactable and uninteractable.
         GameBeginButtons();
-        //With the play button pressed, we will now call the 'AssignPooper' func
-        //We can use this to assign one of the chest gameObjects as the pooper
-        //AssignPooper();
 
         //Determine the frequency of what Multiplier will be chosen
         DetermineMultiplier();
@@ -179,7 +162,7 @@ public class BonusManager : MonoBehaviour
         totalWinnings = _multiplier * currentDenomination;
         int rndRange = Random.Range(1, TreasureChests.Length);
         winningsSplit = new float[rndRange];
-
+        Debug.Log("Winning Split sum: " + winningsSplit.Sum());
         //Send percent multipler to individual chest scripts
         for(int i = 0; i < TreasureChestScripts.Length; i++) 
         {
@@ -188,25 +171,15 @@ public class BonusManager : MonoBehaviour
 
         while(winningsSplit.Sum() < totalWinnings)
         {
+            Debug.Log("Winning Split sum: " + winningsSplit.Sum());
             int rndTChest = Random.Range(0, winningsSplit.Length);
+
             winningsSplit[rndTChest] += 0.05f;
             winningsSplit[rndTChest] = Mathf.Round(winningsSplit[rndTChest] * 100f) / 100f;
             TreasureChestScripts[rndTChest].value = winningsSplit[rndTChest];
         }
 
     }
-
-    private void AssignPooper()
-    {
-        //Generate the random element num
-        int randomElement = Random.Range(0, TreasureChestScripts.Length);
-        //Debug.Log("The random element number is: " + randomElement);
-
-        //Set the TreasureChest to have its isPooper bool become true. Then do the same for if it is Modified.
-        TreasureChestScripts[randomElement].isPooper = true;
-        TreasureChestScripts[randomElement].isModified = true;
-    }
-
     #endregion
 
     #region Calculating Wins & Ending game
@@ -229,7 +202,7 @@ public class BonusManager : MonoBehaviour
         }
 
         CurrentBalanceCheck(currentWins);
-        WinsCheck(currentWins);
+        //WinsCheck(currentWins);
         DenominationCheck(0);
 
         for (int i = 0; i < IncrementButtons.Length; i++)

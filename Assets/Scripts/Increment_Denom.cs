@@ -44,7 +44,7 @@ public class Increment_Denom : MonoBehaviour
         }
         else
         {
-            Debug.Log("Denomination exceeds the balance!");
+            //Debug.Log("Denomination exceeds the balance!");
         }
         
     }

@@ -65,7 +65,7 @@ public class TreasureChestScript : MonoBehaviour
 
     private void SwapChestValue()
     {
-        Debug.Log("Swap Chest Func Fires");
+        //Debug.Log("Swap Chest Func Fires");
         for (int i = 0; i < managerScript.TreasureChestScripts.Length; i++)
         {
             if (managerScript.TreasureChestScripts[i].wasClicked == false)
@@ -88,7 +88,7 @@ public class TreasureChestScript : MonoBehaviour
 
     public void RoundOver()
     {
-        Debug.Log("Round is over");
+        //Debug.Log("Round is over");
         //chestText.text = "Button";
         managerScript.RoundEnd();
     }
