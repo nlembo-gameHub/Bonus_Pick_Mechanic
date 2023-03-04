@@ -36,7 +36,6 @@ public class TreasureChestScript : MonoBehaviour
     [SerializeField] private Quaternion[] InitialCoinRot;
     [SerializeField] private int CoinNum;
     [SerializeField] private Transform _shaker;
-    
 
 
 
@@ -69,7 +68,6 @@ public class TreasureChestScript : MonoBehaviour
     {
         if (percent == 0)
         {
-            //chestText.text = "$" + value.ToString();
             managerScript.AcceptWinsAmount(value);
             RoundOver();
         }
@@ -82,6 +80,7 @@ public class TreasureChestScript : MonoBehaviour
                 managerScript.AcceptWinsAmount(value);
                 value = 0;
                 wasClicked = true;
+                
                 PileOfCoinAnim(PileOfCoinsParent.transform.childCount);
                 this.GetComponent<Button>().interactable = false;
             }
@@ -102,7 +101,6 @@ public class TreasureChestScript : MonoBehaviour
 
     private void SwapChestValue()
     {
-        //Debug.Log("Swap Chest Func Fires");
         for (int i = 0; i < managerScript.TreasureChestScripts.Length; i++)
         {
             if (managerScript.TreasureChestScripts[i].wasClicked == false)
@@ -152,19 +150,19 @@ public class TreasureChestScript : MonoBehaviour
            //Scale the coins up
            PileOfCoinsParent.transform.GetChild(i).DOScale(1f, 0.3f).SetDelay(delay).SetEase(Ease.OutBack);
            //Have the coins move to the CurrentWins counter location
-           PileOfCoinsParent.transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPos(new Vector2(coinGoToLoc.transform.localPosition.x, coinGoToLoc.transform.localPosition.y), 1f).SetDelay(delay + 0.5f).SetEase(Ease.InBack);
+           PileOfCoinsParent.transform.GetChild(i).GetComponent<RectTransform>().DOLocalMove(new Vector2(coinGoToLoc.transform.localPosition.x, coinGoToLoc.transform.localPosition.y), 1f).SetDelay(delay + 0.5f).SetEase(Ease.InBack);
 
-           PileOfCoinsParent.transform.GetChild(i).DORotate(Vector3.zero, 0.5f).SetDelay(delay + 0.5f).SetEase(Ease.Flash);
-           //Scale the coins back down
+           PileOfCoinsParent.transform.GetChild(i).DOLocalRotate(Vector3.zero, 0.5f).SetDelay(delay + 0.5f).SetEase(Ease.Flash);
+            //Scale the coins back down
            PileOfCoinsParent.transform.GetChild(i).DOScale(0f, 0.3f).SetDelay(delay + 1.8f).SetEase(Ease.OutBack);
-            //Increase the delay so that each coin scales and moves as a differing times
+            
+           //Increase the delay so that each coin scales and moves as a differing times
             delay += 0.1f;
         }
     }
 
     public void ChestShake()
     {
-        Debug.Log("Chest Shake is Running");
         const float duration = 1f;
         const float strength = 5f;
 

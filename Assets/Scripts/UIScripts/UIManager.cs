@@ -11,10 +11,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform chestRect;
     [SerializeField] private List<GameObject> chests = new List<GameObject>();
 
+    private void Awake()
+    {
+        //PanelFadeOut();
+    }
     public void PanelFadeIn()
     {
         chestGroup.alpha = 0f;
-        chestRect.transform.localPosition = new Vector3(0f, -1000f, 0f);
+        chestRect.transform.localPosition = new Vector3(0f, -1080f, 0f);
         chestRect.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutElastic);
         chestGroup.DOFade(1, fadeTime);
         StartCoroutine("ChestsAnimation");
@@ -24,7 +28,8 @@ public class UIManager : MonoBehaviour
     {
         chestGroup.alpha = 1f;
         chestRect.transform.localPosition = new Vector3(0f, 0f, 0f);
-        chestRect.DOAnchorPos(new Vector2(0f, -1000f), fadeTime, false).SetEase(Ease.InOutQuint);
+        chestRect.DOAnchorPos(new Vector2(0f, -1080f), fadeTime, false).SetEase(Ease.InOutQuint);
+        StartCoroutine("ChestsAnimation");
         chestGroup.DOFade(0, fadeTime);
     }
 

@@ -36,13 +36,11 @@ public class Increment_Denom : MonoBehaviour
 
     public void SubtractBalance()
     {
-        //Debug.Log("Running SubtractBalance");
         managerScript.CurrentBalanceCheck(-value[currentDenom].value);
     }
 
     private void FixBalance()
     {
-        //Debug.Log("Running FixBalance");
         managerScript.CurrentBalanceCheck(managerScript.currentDenomination);
     }
 

@@ -44,7 +44,6 @@ public class BonusManager : MonoBehaviour
     void Start()
     {
         //Getting Components
-        MainCanvas.GetComponent<UIManager>().PanelFadeOut();
         TreasureChestScripts = new TreasureChestScript[TreasureChests.Length];
         increment = this.GetComponent<Increment_Denom>();
         PlayButton.GetComponent<Button>().interactable = false;
@@ -110,7 +109,6 @@ public class BonusManager : MonoBehaviour
     #region Chest Assignments
     public void BeginChestAssignment()
     {
-        //Debug.Log("Play button has been pressed");
         currentWins = 0;
         WinsCheck(currentWins);
         //Make buttons interactable and uninteractable.
@@ -219,7 +217,6 @@ public class BonusManager : MonoBehaviour
         }
 
         CurrentBalanceCheck(currentWins);
-        //WinsCheck(currentWins);
         DenominationCheck(0);
 
         for (int i = 0; i < IncrementButtons.Length; i++)
