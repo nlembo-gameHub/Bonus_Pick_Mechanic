@@ -5,26 +5,39 @@ using UnityEngine;
 
 public class Increment_Denom : MonoBehaviour
 {
-    //Scriptable Objects
-    [SerializeField] private Increment_Value valueScriptable;
+    //Game Object Arrays
+    [Header("Game Object Arrays")]
+    //[SerializeField] private Increment_Value valueScriptable;
+    [SerializeField] private Increment_Value[] value;
+
     //Game Manager and its Script
+    [Header("Game Objects")]
     [SerializeField] private GameObject gameManager;
     [SerializeField] private BonusManager managerScript;
-    //Button text
-    [SerializeField] public TextMeshProUGUI denomText;
-    // Start is called before the first frame update
+
+    //UI Elements
+    [Header("UI Variables")]
+    [SerializeField] public TextMeshProUGUI decreaseText;
+    [SerializeField] public TextMeshProUGUI increaseText;
+
+    //Counter Variables
+    [Header("Counter Variables")]
+    [SerializeField] public int currentDenom;
+    [SerializeField] public int previousDenom;
+    [SerializeField] public bool newRound = true;
+
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager");
         managerScript = gameManager.GetComponent<BonusManager>();
 
-        denomText.text = "$" + valueScriptable.value.ToString();
+        DenomTextUpdate();
     }
 
     public void SubtractBalance()
     {
         //Debug.Log("Running SubtractBalance");
-        managerScript.CurrentBalanceCheck(-valueScriptable.value);
+        managerScript.CurrentBalanceCheck(-value[currentDenom].value);
     }
 
     private void FixBalance()
@@ -36,11 +49,11 @@ public class Increment_Denom : MonoBehaviour
     public void AddDenomination()
     {
         FixBalance();
-        if (valueScriptable.value <= managerScript.currentBalance)
+        if (value[currentDenom].value <= managerScript.currentBalance)
         {
-            //FixBalance();
+            DenomTextUpdate();
             SubtractBalance();
-            managerScript.DenominationCheck(valueScriptable.value);
+            managerScript.DenominationCheck(value[currentDenom].value);
         }
         else
         {
@@ -48,4 +61,55 @@ public class Increment_Denom : MonoBehaviour
         }
         
     }
+
+    public void NextDenom()
+    {
+        if(currentDenom < value.Length-1) 
+        {
+            currentDenom += 1;
+            previousDenom = currentDenom - 1;
+            AddDenomination();
+        }
+    }
+
+    public void PreviousDenom()
+    {
+        if(previousDenom > 0) 
+        {
+            currentDenom -= 1;
+            previousDenom = currentDenom - 1;
+            AddDenomination();
+        }
+        else
+        {
+            currentDenom = 0;
+            previousDenom = 0;
+            AddDenomination();
+        }
+        
+    }
+
+    public void DenomTextUpdate()
+    {
+        if (newRound == true)
+        {
+            decreaseText.text = "$" + value[currentDenom].value.ToString();
+            increaseText.text = "$" + value[currentDenom + 1].value.ToString();
+            newRound = false;
+        }
+        else
+        {
+            decreaseText.text = "$" + value[previousDenom].value.ToString();
+            if(currentDenom < value.Length - 1)
+            {
+                increaseText.text = "$" + value[currentDenom + 1].value.ToString();
+            }
+            else
+            {
+                increaseText.text = "$" + value[currentDenom].value.ToString();
+            }
+            
+        }
+    }
+
 }

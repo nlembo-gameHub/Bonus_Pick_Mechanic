@@ -285,6 +285,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueScriptable: {fileID: 11400000, guid: 6304d3f787557854384a51ffcfd002d0, type: 2}
+  value:
+  - {fileID: 11400000, guid: d9f775724ef54974a843e7f81d3c69a1, type: 2}
+  - {fileID: 11400000, guid: 6304d3f787557854384a51ffcfd002d0, type: 2}
+  - {fileID: 11400000, guid: bc4ed10b6fbdae044acd08e94b369ec9, type: 2}
+  - {fileID: 11400000, guid: 131c5cd686ab8f443951ddf3dccf7ade, type: 2}
+  - {fileID: 11400000, guid: c879122aef9004f4a857841f0697fca6, type: 2}
   gameManager: {fileID: 0}
   managerScript: {fileID: 0}
   denomText: {fileID: 2265385728700038944}
+  currentCounter: 0
+  previousCounter: 0

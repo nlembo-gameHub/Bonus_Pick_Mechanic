@@ -11,9 +11,11 @@ public class BonusManager : MonoBehaviour
     [Header("Game Object Arrays")]
     [SerializeField] public GameObject[] TreasureChests;
     [SerializeField] public TreasureChestScript[] TreasureChestScripts;
+    [SerializeField] private Increment_Denom increment;
 
     //UI Elements
     [Header("U.I. Variables")]
+    [SerializeField] private GameObject MainCanvas;
     [SerializeField] private TextMeshProUGUI balanceText;
     [SerializeField] private TextMeshProUGUI denominationText;
     [SerializeField] private TextMeshProUGUI winsText;
@@ -41,7 +43,12 @@ public class BonusManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Getting Components
+        MainCanvas.GetComponent<UIManager>().PanelFadeOut();
         TreasureChestScripts = new TreasureChestScript[TreasureChests.Length];
+        increment = this.GetComponent<Increment_Denom>();
+        PlayButton.GetComponent<Button>().interactable = false;
+
         //Filling out the TreasureChestScript Array
         for (int i = 0; i < TreasureChests.Length; i++)
         {
@@ -49,6 +56,7 @@ public class BonusManager : MonoBehaviour
             TreasureChestScripts[i] = TreasureChests[i].GetComponent<TreasureChestScript>();
             TreasureChests[i].GetComponent<Button>().interactable = false;
         }
+
 
         //Setting up the initial values of the text
         CurrentBalanceCheck(currentBalance);
@@ -80,8 +88,17 @@ public class BonusManager : MonoBehaviour
 
     public void DenominationCheck(float _passedValue)
     {
+        
         currentDenomination = _passedValue;
         denominationText.text = currentDenomination.ToString();
+        if (currentDenomination > 0)
+        {
+            PlayButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            PlayButton.GetComponent<Button>().interactable = false;
+        }
     }
 
     public void WinsCheck(float _passedValue)
@@ -162,7 +179,7 @@ public class BonusManager : MonoBehaviour
         totalWinnings = _multiplier * currentDenomination;
         int rndRange = Random.Range(1, TreasureChests.Length);
         winningsSplit = new float[rndRange];
-        Debug.Log("Winning Split sum: " + winningsSplit.Sum());
+        
         //Send percent multipler to individual chest scripts
         for(int i = 0; i < TreasureChestScripts.Length; i++) 
         {
@@ -171,7 +188,7 @@ public class BonusManager : MonoBehaviour
 
         while(winningsSplit.Sum() < totalWinnings)
         {
-            Debug.Log("Winning Split sum: " + winningsSplit.Sum());
+            
             int rndTChest = Random.Range(0, winningsSplit.Length);
 
             winningsSplit[rndTChest] += 0.05f;
@@ -209,6 +226,11 @@ public class BonusManager : MonoBehaviour
         {
             IncrementButtons[i].GetComponent<Button>().interactable = true;
         }
+        increment.currentDenom = 0;
+        increment.previousDenom = 0;
+        increment.newRound = true;
+        increment.DenomTextUpdate();
+        MainCanvas.GetComponent<UIManager>().PanelFadeOut();
     }
     #endregion
 }
